@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/index.css" />
+
+        <title>Chat App</title>
+    </head>
+    <body>
+        <header>
+            <h2>Chat App</h2>
+        </header>
+        <div id="app" class="main">
+            <div class="chat">
+                <div class="receive">
+                    <img class="r-img" src="julien.jpg" alt="yoyoy" />
+                    <p class="r-p">lorem ipsum</p>
+                </div>
+
+                <div class="respond">
+                    <div
+                        v-show="state"
+                        v-for="chat in chats"
+                        :key="chat.id"
+                        class="e-con"
+                    >
+                        <p class="e-p">{{ chat.msg }}</p>
+                        <img class="e-img" src="alison.jpg" alt="yoyoy" />
+                    </div>
+                </div>
+            </div>
+            <form @submit="sendMessage">
+                <div class="input">
+                    <input
+                        v-model="this.chats.msg"
+                        type="text"
+                        name="text-data"
+                        id="text-data"
+                        placeholder="what's on your mind"
+                    />
+                    <button type="submit">send</button>
+                </div>
+            </form>
+        </div>
+        <footer>
+            <p>&copy; Whilmar Bitoco. All Rights Reserved</p>
+        </footer>
+        <script src="js/vue.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
