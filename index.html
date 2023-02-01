@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/index.css" />
-
+        <meta name="description" content="A simple Chat App" />
         <title>Chat App</title>
     </head>
     <body>
@@ -13,20 +13,15 @@
         </header>
         <div id="app" class="main">
             <div class="chat">
-                <div class="receive">
-                    <img class="r-img" src="julien.jpg" alt="yoyoy" />
-                    <p class="r-p">lorem ipsum</p>
+                <div v-for="r in receive" :key="r.id" class="receive">
+                    <img class="r-img" src="img/julien.jpg" alt="yoyoy" />
+                    <p class="r-p">{{ r.msg }}</p>
                 </div>
 
                 <div class="respond">
-                    <div
-                        v-show="state"
-                        v-for="chat in chats"
-                        :key="chat.id"
-                        class="e-con"
-                    >
+                    <div v-for="chat in chats" :key="chat.id" class="e-con">
                         <p class="e-p">{{ chat.msg }}</p>
-                        <img class="e-img" src="alison.jpg" alt="yoyoy" />
+                        <img class="e-img" src="img/alison.jpg" alt="yoyoy" />
                     </div>
                 </div>
             </div>
@@ -37,15 +32,15 @@
                         type="text"
                         name="text-data"
                         id="text-data"
-                        placeholder="what's on your mind"
+                        placeholder="message"
                     />
                     <button type="submit">send</button>
                 </div>
             </form>
         </div>
-        <footer>
-            <p>&copy; Whilmar Bitoco. All Rights Reserved</p>
-        </footer>
+        <div class="footer">
+            <p>2023 &copy; Whilmar Bitoco. All rights reserved.</p>
+        </div>
         <script src="js/vue.js"></script>
         <script src="js/index.js"></script>
     </body>
